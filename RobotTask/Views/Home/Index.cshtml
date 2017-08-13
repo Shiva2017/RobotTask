@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "RobotTask";
+}
+
+<div class="row">
+    <h2>Robot Toy Direction</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-2">
+            X-Coordiante
+        </div>
+        <div class="col-md-2">
+            <input type="number" value="3" class="text-primary" id="XId" onblur="ProcessXAxis()" />
+        </div>
+        <div class="col-md-2">
+            Y-Coordiante
+        </div>
+        <div class="col-md-2">
+            <input type="number" value="3" class="text-primary" id="YId" onblur="ProcessYAxis()" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-2">
+            Face
+        </div>
+        <div class="col-md-2">
+            <select id="ddlFace" name="ddlFace" class="dropdown-header" onchange="FaceChange()">
+                <option value="1">North</option>
+                <option value="2">East</option>
+                <option value="3">South</option>
+                <option value="4">West</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <input type="button" class="btn btn-primary" value="Left" onclick="ProcessLeft()" />
+            <input type="button" class="btn btn-primary" value="Move" onclick="ProcessMove()" />
+            <input type="button" class="btn btn-primary" value="Right" onclick="ProcessRight()" />
+        </div>
+        <div class="col-md-4">
+            <img src="~/Image/Directions.png" style="width:100px;height:100px"/>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div id="divMsg"></div><br />
+</div>
+<div class="row">
+    <div class="table-bordered col-md-10">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="col-md-2 "><div style="width:10px">1*1</div><img id="imgBlank11" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot11" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">1*2</div><img id="imgBlank12" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot12" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">1*3</div><img id="imgBlank13" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot13" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">1*4</div><img id="imgBlank14" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot14" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">1*5</div><img id="imgBlank15" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot15" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <div class="col-md-2 "><div style="width:10px">2*1</div><img id="imgBlank21" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot21" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">2*2</div><img id="imgBlank22" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot22" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">2*3</div><img id="imgBlank23" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot23" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">2*4</div><img id="imgBlank24" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot24" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">2*5</div><img id="imgBlank25" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot25" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <div class="col-md-2 "><div style="width:10px">3*1</div><img id="imgBlank31" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot31" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">3*2</div><img id="imgBlank32" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot32" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">3*3</div><img id="imgBlank33" src="~/Image/Blank.jpg" style="width: 90%; display: none" /><img id="imgRobot33" src="~/Image/Robot.jpg" style="width: 90%; display: block" /></div>
+                <div class="col-md-2 "><div style="width:10px">3*4</div><img id="imgBlank34" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot34" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">3*5</div><img id="imgBlank35" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot35" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <div class="col-md-2 "><div style="width:10px">4*1</div><img id="imgBlank41" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot41" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">4*2</div><img id="imgBlank42" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot42" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">4*3</div><img id="imgBlank43" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot43" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">4*4</div><img id="imgBlank44" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot44" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">4*5</div><img id="imgBlank45" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot45" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col-md-10">
+                <div class="col-md-2 "><div style="width:10px">5*1</div><img id="imgBlank51" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot51" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">5*2</div><img id="imgBlank52" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot52" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">5*3</div><img id="imgBlank53" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot53" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">5*4</div><img id="imgBlank54" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot54" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+                <div class="col-md-2 "><div style="width:10px">5*5</div><img id="imgBlank55" src="~/Image/Blank.jpg" style="width: 90%; display: block" /><img id="imgRobot55" src="~/Image/Robot.jpg" style="width: 90%; display: none" /></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display:none">
+    <div id="divX">3</div>
+    <div id="divY">3</div>
+    <div id="divF">1</div>
+</div>
+<script type="text/javascript">
+
+</script>
